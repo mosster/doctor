@@ -7,12 +7,10 @@ var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     livereload  = require('gulp-livereload'),
     tinylr      = require('tiny-lr'),
-    express     = require('express'),
-    app         = express(),
     marked      = require('marked'),
     path        = require('path'),
     server      = tinylr();
-    tasks       = ['js','css','templates','express','watch'];
+    tasks       = ['js','css','templates','watch'];
  
 // ---------------------------------------
 // Watch Task
@@ -30,7 +28,7 @@ gulp.task('css', function() {
         errLogToConsole: true
       } ) )
     .pipe( csso() )
-    .pipe( gulp.dest('build/assets/css/') )
+    .pipe( gulp.dest('build/css/') )
     .pipe( livereload( server ));
 });
 
@@ -41,7 +39,7 @@ gulp.task('js', function() {
   return gulp.src('assets/js/*.js')
     .pipe( uglify() )
     .pipe( concat('all.min.js'))
-    .pipe( gulp.dest('build/assets/js/'))
+    .pipe( gulp.dest('build/js/'))
     .pipe( livereload( server ));
 });
 
@@ -55,15 +53,6 @@ gulp.task('templates', function() {
     }))
     .pipe(gulp.dest('build/'))
     .pipe( livereload( server ));
-});
-
-// ---------------------------------------
-// Server
-// ---------------------------------------
-gulp.task('express', function() {
-  app.use(express.static(path.resolve('./build')));
-  app.listen(3001);
-  gutil.log('Listening on port: 3001');
 });
 
 // ---------------------------------------
