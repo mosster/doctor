@@ -1,5 +1,4 @@
 var gulp        = require('gulp'),
-    gutil       = require('gulp-util'),
     sass        = require('gulp-sass'),
     csso        = require('gulp-csso'),
     uglify      = require('gulp-uglify'),
@@ -7,8 +6,6 @@ var gulp        = require('gulp'),
     concat      = require('gulp-concat'),
     livereload  = require('gulp-livereload'),
     tinylr      = require('tiny-lr'),
-    marked      = require('marked'),
-    path        = require('path'),
     server      = tinylr();
     tasks       = ['js','css','templates','watch'];
  
@@ -63,13 +60,9 @@ gulp.task('watch', function () {
     if (err) {
       return console.log(err);
     }
-
     gulp.watch('assets/sass/*.scss',['css']);
-
     gulp.watch('assets/js/*.js',['js']);
-
     gulp.watch('app/views/*.jade',['templates']);
     
   });
 });
-
