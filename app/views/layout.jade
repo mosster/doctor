@@ -1,0 +1,42 @@
+//-------------------------------------------
+//- Variables
+//-------------------------------------------
+- var metaTitle     =   ''
+- var metaDesc      =   ''
+- var metaKeywords  =   ''
+
+//-------------------------------------------
+//- Start layout.jade
+//-------------------------------------------
+
+doctype html
+html(lang='en')
+  head
+    //- SEO
+    title #{title} - Mossified
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='#{metaDesc}')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name="keywords" content="#{metaKeywords}")
+
+    //- CSS
+    link(rel='shortcut icon' type='image/x-icon' href='favicon.ico')
+    link(rel='stylesheet', href='/styles/app.css')
+    link(href='https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', rel='stylesheet')
+
+    //- Scripts
+    script(src='https://use.typekit.net/ain2xbj.js')
+    script.
+      try{Typekit.load({ async: true });}catch(e){}
+
+  body
+    header
+      h1 My Site
+    .container
+      .main-content
+        block content
+      .sidebar
+        block sidebar
+    footer
+      p Running on node with Express, Jade and Stylus

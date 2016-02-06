@@ -19,7 +19,7 @@ app.set('views', __dirname + '/app/views')
 app.set('view engine', 'jade')
 app.use(express.logger('dev'))
 app.use(stylus.middleware(
-  { src: __dirname + '/public'
+  { src: __dirname + '/public/styles'
   , compile: compile
   }
 ))
@@ -29,6 +29,8 @@ app.use(express.static(__dirname + '/public'))
 // Routes
 // ------------------------------
 app.get('/', function (req, res) {
-  res.end('Hi there!')
+  res.render('index',
+  { title : 'Home' }
+  )
 })
 app.listen(3000)
