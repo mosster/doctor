@@ -35,7 +35,7 @@ gulp.task('css', function() {
 gulp.task('js', function() {
   return gulp.src('assets/js/*.js')
     .pipe( uglify() )
-    .pipe( concat('all.min.js'))
+    .pipe( concat('main.min.js'))
     .pipe( gulp.dest('build/js/'))
     .pipe( livereload( server ));
 });
