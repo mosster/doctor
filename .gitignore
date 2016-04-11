@@ -2,3 +2,4 @@ node_modules
 public/lib
 build
 npm-debug.log
+assets/vendor
