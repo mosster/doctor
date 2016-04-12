@@ -1,0 +1,36 @@
+//-------------------------------------------
+//- Variables
+//-------------------------------------------
+- var metaTitle     =   ''
+- var metaDesc      =   ''
+- var metaKeywords  =   ''
+
+//-------------------------------------------
+//- Start layout.jade
+//-------------------------------------------
+
+doctype html
+html(lang='en')
+
+  head
+    //- SEO
+    title #{title} - Mossified
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='description', content='#{metaDesc}')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    meta(name="keywords" content="#{metaKeywords}")
+
+    //- CSS
+    link(rel='shortcut icon' type='image/x-icon' href='favicon.ico')
+    link(rel='stylesheet', href='css/main.css')
+    link(rel='stylesheet', href='js/main.min.js')
+    link(rel='stylesheet', href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
+
+  body
+    //- Content
+    block layout
+
+    //- Scripts
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js")
+

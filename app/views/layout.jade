@@ -1,64 +1,6 @@
-//-------------------------------------------
-//- Variables
-//-------------------------------------------
-- var metaTitle     =   ''
-- var metaDesc      =   ''
-- var metaKeywords  =   ''
+extends base.jade
 
-//-------------------------------------------
-//- Start layout.jade
-//-------------------------------------------
+block layout
+  .wrapper-main
+    block content
 
-doctype html
-html(lang='en')
-  head
-    //- SEO
-    title #{title} - Mossified
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='description', content='#{metaDesc}')
-    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
-    meta(name="keywords" content="#{metaKeywords}")
-
-    //- CSS
-    link(rel='shortcut icon' type='image/x-icon' href='favicon.ico')
-    link(rel='stylesheet', href='css/main.css')
-    link(rel='stylesheet', href='js/main.min.js')
-
-  body
-    .wrapper-main
-
-      //- Header
-      section.wrapper-header
-        header.header
-          .header__cta
-            a.btn--primary(href='mailto:mossified.com', target='_blank') Connect
-          .header__logo
-            img.header__logo__img(src='img/logo.png', alt='Mossified')
-
-      //- Intro
-      section.wrapper-inner
-        section.wrapper-intro
-          h6 Obviously not a copywriter
-          h1 Hi, I'm Ed. A #[span.glitch(data-text='digital') digital] product designer from the Big Apple.
-          p 
-            | I worked most recently on the OPEN Forum product for American Express while employed at Kettle for the past year. 
-            | During my time there, I've collaborated with strategists, product owners, engineers and stakeholders to develop new 
-            | features and create a great all-around experience for our users while focusing on both user and business goals and objectives.
-          p
-            | I tinker in all aspects of building exceptional products from developing high level wireframes and user stories to designing highly functional in-browser prototypes.
-
-        //- Works
-        section.wrapper-works
-          h6.margin-bottom--half View Work Samples
-          ul.works__list
-            li.works__list__item 
-              a(href='') Bossdock
-            li.works__list__item 
-              a(href='') Canary
-            li.works__list__item 
-              a(href='') NewsCred
-            li.works__list__item 
-              a(href='') Lunch?
-            li.works__list__item 
-              a(href='') Open Forum

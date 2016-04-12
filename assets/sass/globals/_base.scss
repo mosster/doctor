@@ -1,3 +1,29 @@
+// ------------------------------------
+// Mixin: Breakpoints
+// ------------------------------------
+
+$mobile-width: 667px;
+$tablet-width: 900px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
+
 //---------------------------------
 // Variables
 //---------------------------------
@@ -11,7 +37,7 @@ $color-white: #fff;
 body {
   background: $color-blue-darker;
   color: $color-white;
-  font-size: 16px;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   font-family: "Helvetica", sans-serif;
   line-height: 1;
@@ -57,13 +83,17 @@ h6 {
 
 p {
   font-size: inherit;
-  line-height: 26px;  
+  line-height: 30px;  
 }
 //---------------------------------
 // Helpers
 //---------------------------------
 .margin-bottom--half {
   margin-bottom: 10px;
+}
+
+.color--white {
+  color: #fff;
 }
 
 //---------------------------------
@@ -105,7 +135,7 @@ p {
 // Works
 //---------------------------------
 .wrapper-works {
-  margin-top: 30px;
+  margin-top: 50px;
 }
 
 .works__list {
@@ -120,7 +150,7 @@ p {
       font-size: 30px;
       display: inline-block;
       background: #272A31;
-      padding: 30px 35px;
+      padding: 25px 35px;
       font-weight: 200;
       border-radius: 6px;
       transition: all 0.3s ease-in-out;
@@ -132,6 +162,32 @@ p {
 }
 
 //---------------------------------
+// Github
+//---------------------------------
+.wrapper-contact {
+  margin-top: 80px;
+}
+
+.contact__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  .contact__list__item {
+    display: inline-block;
+    margin: 0 25px 0 0;
+    font-size: 28px;
+    > a {
+      color: $color-white;
+      &:hover {
+        color: $color-orange;
+      }
+    }
+  }
+}
+
+
+
+//---------------------------------
 // Glitch
 //---------------------------------
 
@@ -139,12 +195,10 @@ $glitch-steps: 20;
 
 //---------------------------------
 
-
 .glitch {
   position: relative;
   margin: 0 auto;
   color: $color-white;
-  text-align: center;
   letter-spacing: 0.01em;
   transform: scale3d(1,1,1);
   &::before,
@@ -158,7 +212,6 @@ $glitch-steps: 20;
     background: $color-blue-darker;
     color: $color-white;
     clip: rect(0, 900px, 0, 0);
-
   }
   &::before {
     left: 7px;
@@ -171,11 +224,10 @@ $glitch-steps: 20;
     animation: glitch-effect 2s infinite linear alternate-reverse;
   }
 }
-
 @keyframes glitch-effect{
   @for $i from 0 through $glitch-steps{
     #{percentage($i*(1/$glitch-steps))}{
-        clip:rect(random(100)+px,9999px,random(100)+px,0);
+      clip:rect(random(100)+px,9999px,random(100)+px,0);
     }
   }
 }
