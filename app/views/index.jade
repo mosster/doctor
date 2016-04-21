@@ -2,6 +2,11 @@ extends layout.jade
 
 block content
 
+  //-------------------------
+  //- Header
+  //-------------------------
+  include includes/header
+
   .wrapper-inner
 
     //- Intro
@@ -9,11 +14,11 @@ block content
       h6 Obviously not a copywriter
       .scene_element.scene_element--fadein
         h1 Hi, I'm Ed. A #[span.glitch(data-text='digital') digital] product designer from the Big Apple.
-        p 
+        p.text--small 
           | I worked most recently on the OPEN Forum product for American Express while employed at Kettle for the past year. 
           | During my time there, I've collaborated with strategists, product owners, engineers and stakeholders to develop new 
           | features and create a great all-around experience for our users while focusing on both user and business goals and objectives.
-        p
+        p.text--small
           | I tinker in all aspects of building exceptional products from developing high level wireframes and user stories to designing highly functional in-browser prototypes.
 
     //- Works
