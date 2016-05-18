@@ -1,12 +1,24 @@
 extends layout.jade
 
+//- Vars
+block vars
+  - bodyClass = 'works'
+
 block content
+
+  //-------------------------
+  //- Header
+  //-------------------------
+  include includes/header-2
+
   section.wrapper-hero
     .wrapper-inner
       h6.color--white OPEN Forum
       h1 A Helpful Way to Communicate
 
-
+  //-------------------------
+  //- Content
+  //-------------------------
   section.wrapper-content
     .wrapper-inner
       p

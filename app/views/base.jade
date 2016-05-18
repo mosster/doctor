@@ -5,6 +5,9 @@
 - var metaDesc      =   ''
 - var metaKeywords  =   ''
 
+block vars
+    - bodyClass
+
 //-------------------------------------------
 //- Start layout.jade
 //-------------------------------------------
@@ -26,7 +29,12 @@ html(lang='en')
     link(rel='stylesheet', href='css/main.css')
     link(rel='stylesheet', href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')
 
-  body
+    //- Fonts
+    script(type="text/javascript", src="https://use.typekit.net/ykp2ujf.js")
+    script(type="text/javascript").
+        try{Typekit.load({ async: true });}catch(e){}
+
+  body(class='#{bodyClass}')
     //- Content
     block layout
 

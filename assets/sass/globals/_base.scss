@@ -30,6 +30,7 @@ $desktop-width: 1024px;
 
 $color-orange: #F85328;
 $color-blue-fade: #515563;
+$color-blue-lighter: #5A5E69;
 $color-blue-darker: #161920;
 $color-white: #fff;
 
@@ -38,7 +39,10 @@ $gray-regular: #999;
 $gray-darkest: #1E1E1E;
 
 
-$font-sans: "aktiv grotesk", "Helvetica Neue", sans-serif;
+$font-sans: "aktiv-grotesk";
+$font-sans-2: "adelle-sans";
+
+$spacing-small: 10px;
 //---------------------------------
 *,
 *:after,
@@ -47,8 +51,8 @@ $font-sans: "aktiv grotesk", "Helvetica Neue", sans-serif;
 }
 
 body {
-  background: $color-white;
-  color: $gray-darkest;
+  background: $color-blue-darker;
+  color: $color-white;
   font-size: 18px;
   -webkit-font-smoothing: antialiased;
   font-family: $font-sans;
@@ -69,16 +73,25 @@ a {
 //---------------------------------
 // Buttons
 //---------------------------------
-.btn--primary {
+%btn {
   display: inline-block;
   padding: 10px 18px;
   font-size: 16px;
   font-weight: 600;
   border: none;
-  background: $color-orange;
   border-radius: 4px;
-  color: $color-white;
   line-height: normal;
+}
+
+.btn--orange {
+  @extend %btn;
+  background: $color-orange;
+  color: $color-white;
+}
+.btn--white {
+  @extend %btn;
+  background: $color-white;
+  color: $color-blue-darker;
 }
 
 //---------------------------------
@@ -88,16 +101,16 @@ h1 {
   font-size: 68px;
   line-height: 72px;
   margin: 0 0 20px;
-  font-family: $font-sans;
+  font-family: $font-sans-2;
 }
 
 h6 {
   text-transform: uppercase;
   font-size: 12px;
-  color: $gray-light;
+  color: $color-blue-lighter;
   font-weight: 800;
   letter-spacing: 1px;
-  margin: 0 0 10px;
+  margin: 0 0 20px;
 }
 
 p {
@@ -133,6 +146,7 @@ p {
 .wrapper-main {
   width: 100%;
   max-width: 100%;
+  margin: 100px 0;
 }
 
 .wrapper-inner {
@@ -144,17 +158,29 @@ p {
 // Header
 //---------------------------------
 .wrapper-header {
-  margin: 100px 0;
+  margin: 0 0 100px 0;
 }
 
 .header {
   .header__logo__img {
-    width: 140px;
-    height: auto;
+    display: inline-block;
+    > svg {
+      fill: $color-white;
+      width: 150px;
+      height: auto;
+    }
   }
   .header__cta {
     float: right;
   }
+}
+.header--2 {
+  position: absolute;
+  width: 100%;
+  max-width: 1055px;
+  top: 100px;
+  right: auto;
+  left: auto;
 }
 
 //---------------------------------
@@ -168,7 +194,7 @@ p {
 // Works
 //---------------------------------
 .wrapper-works {
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .works__list {
@@ -176,34 +202,31 @@ p {
   padding: 0;
   list-style-type: none;
   .works__list__item {
-    display: inline-block;
+    display: table;
     margin: 5px 10px 10px 0px;
     > a {
-      color: #aaa;
+      color: $color-blue-lighter;
       font-size: 30px;
       display: inline-block;
-      background: #eee;
-      padding: 20px 35px;
+      padding: 5px 0;
       line-height: normal;
       font-weight: 200;
-      border-radius: 6px;
       transition: all 0.3s ease-in-out;
       &:hover {
-        background: $color-orange;
-        color: $color-white;
+        color: $color-orange;
       }
     }
+    span {
+      color: $color-white;
+      font-weight: 500;
+      display: inline-block;
+      margin-right: $spacing-small;
+    }
+    sup {
+      display: inline-block;
+      margin-right: 20px;
+    }
   }
-}
-
-.wrapper-hero {
-  background: #04A3FF;
-  color: #fff;
-  padding: 300px 0;
-}
-
-.wrapper-content {
-  margin: 100px 0;
 }
 
 //---------------------------------
@@ -221,12 +244,15 @@ p {
     display: inline-block;
     margin: 0 25px 0 0;
     font-size: 28px;
-    > a {
-      color: $gray-light;
+    a, a:visited {
+      color: $color-blue-lighter;
       &:hover {
         color: $color-orange;
       }
     }
+  }
+  .contact__list__item--right {
+    float: right;
   }
 }
 
@@ -243,7 +269,7 @@ $glitch-steps: 20;
 .glitch {
   position: relative;
   margin: 0 auto;
-  color: $gray-darkest;
+  color: $color-white;
   letter-spacing: 0.01em;
   transform: scale3d(1,1,1);
   &::before,
@@ -254,8 +280,8 @@ $glitch-steps: 20;
     left: 0;
     right: 0;
     overflow: hidden;
-    background: $color-white;
-    color: $gray-darkest;
+    background: $color-blue-darker;
+    color: $color-white;
     clip: rect(0, 900px, 0, 0);
   }
   &::before {
@@ -278,21 +304,28 @@ $glitch-steps: 20;
 }
 
 //---------------------------------
-// Page Animations
+// Works Page
 //---------------------------------
-
-.m-scene .scene_element {
-  animation-duration: 3.25s;
-  transition-timing-function: ease-in;
-  animation-fill-mode: both;
+body.works {
+  background: $color-white;
+  color: $color-blue-darker;
+}
+.works {
+  .wrapper-main {
+    margin: 0;
+  }
+  .wrapper-header {
+    margin: 0;
+  }
+}
+.wrapper-hero {
+  background: #04A3FF;
+  color: #fff;
+  padding: 350px 0 250px 0;
 }
 
-.m-scene .scene_element--fadein {
-  animation-name: fadeIn;
-}
-
-.m-scene.is-exiting .scene_element {
-  animation-direction: alternate-reverse;
+.wrapper-content {
+  margin: 100px 0;
 }
 
 //---------------------------------
@@ -301,4 +334,16 @@ $glitch-steps: 20;
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
+}
+
+@keyframes wobble {
+  0% {    transform: translate3d(-25%, 0, 0)  rotate3d(0, 0, 1, -5deg)  scaleX(-1); }
+  25% {   transform: translate3d(20%, 0, 0)   rotate3d(0, 0, 1, 4deg)   scaleX(-1); }
+  50% {   transform: translate3d(-15%, 0, 0)  rotate3d(0, 0, 1, -3deg)  scaleX(-1); }
+  75% {   transform: translate3d(20%, 0, 0)   rotate3d(0, 0, 1, 2deg)   scaleX(-1); }
+  100% {  transform: translate3d(-25%, 0, 0)  rotate3d(0, 0, 1, -5deg)  scaleX(-1); }
+}
+
+.wobble {
+    animation: wobble 2.5s infinite ease-in-out;
 }
