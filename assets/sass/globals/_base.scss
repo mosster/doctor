@@ -396,9 +396,6 @@ p {
     float: left;
     .logo__title {
       float: left;
-    }
-    .logo__title {
-      float: left;
       font-weight: 800;
       color: #aaa;
     }
@@ -414,7 +411,7 @@ p {
 }
 
 .logo {
-  display: none;
+  float: left;
 }
 
 .nav {
@@ -664,3 +661,5 @@ p {
 .wobble {
     animation: wobble 2.5s infinite ease-in-out;
 }
+
+
