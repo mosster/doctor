@@ -202,11 +202,14 @@ h1 {
   line-height: 72px;
   margin: 0 0 20px;
   font-family: $font-sans-2;
+  @include mobile {
+    font-size: 24px;
+    line-height: 0;
+  }
 }
 
 h2 {
   font-weight: 400;
-  margin: 0 0 $spacing-xlarge;
 }
 
 h3 {
@@ -308,8 +311,6 @@ p {
   }
 }
 
-// rgba(146, 0, 255, 0.15)
-
 .overlay--light {
   &:after {
     @extend %overlay;
@@ -337,6 +338,9 @@ p {
   lost-center: 900px;
   lost-utility: clearfix;
   position: relative;
+  @include mobile() {
+    padding: 0 $spacing-base;
+  }
 }
 
 //---------------------------------
@@ -359,25 +363,75 @@ p {
   background: #000000 url('https://images.unsplash.com/photo-1443616527314-4fbb6da1dcf5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=d0ca1220af53a213231404b45551abf3') no-repeat center center;
   background-size: cover;
   height: 100vh;
+  z-index: 999;
+  @include mobile() {
+    margin-bottom: 50px;
+  }
   .wrapper-inner {
-    z-index: 99;
+    z-index: 1;
     height: 100%;
     position: relative;
+  }
+}
+
+.wrapper-header--fixed {
+  header {
+    position: fixed;
+    background: $color-white;
+    width: 100%;
+    left: 0;
+    top: 0;
+    color: $gray-darkest;
+    padding: $spacing-small;
+    box-shadow: 0 2px 8px rgba($color-black, 0.1);
+  }
+  .nav {
+    .nav__item {
+      > a {
+        color: $color-black;
+      }
+    }
+  }
+  .logo {
+    float: left;
+    .logo__title {
+      float: left;
+    }
+    .logo__title {
+      float: left;
+      font-weight: 800;
+      color: #aaa;
+    }
   }
 }
 
 .header {
   position: relative;
   top: 50px;
+  @include mobile() {
+    top: 20px;
+  }
+}
+
+.logo {
+  display: none;
 }
 
 .nav {
   @include list-reset();
   float: right;
+  @include mobile() {
+    margin: 0 auto;
+    display: table;
+    float: none;
+  }
   .nav__item {
     display: inline-block;
-    margin-left: 20px;
+    margin: 0 0 0 15px;
     font-size: 15px;
+    &:first-child {
+      margin-left: 0;
+    }
     > a {
       text-decoration: none;
       color: $color-white;
@@ -413,9 +467,16 @@ p {
 
 .about {
   lost-column: 2/4;
+  @include mobile() {
+    lost-row: 1/2;
+    margin-bottom: $spacing-base;
+  }
 }
 .gallery {
   lost-column: 2/4;
+  @include mobile() {
+    lost-row: 1/2;
+  }
   .gallery__item--featured {
     > img {
       width: 100%;
@@ -435,10 +496,16 @@ p {
   }
 }
 
+//---------------------------------
+// Services
+//---------------------------------
 .services__list {
   @include list-reset();
   column-count: 3;
-  column-gap: 20px;
+  column-gap: $spacing-base;
+  @include mobile() {
+    column-count: 2;
+  }
   .services__item {
     margin: 0 0 $spacing-base;
     color: $gray-regular;
@@ -452,10 +519,14 @@ p {
 .wrapper-cards {
   .card {
     lost-column: 4/12 3 40px;
+    @include mobile() {
+      lost-row: 1/2;
+      margin-bottom: $spacing-base;
+    } 
   }
 }
 .card {
-  padding: $spacing-base;
+  padding: $spacing-large $spacing-base;
   border: 1px solid $gray-lighter;
   border-radius: 8px;
   text-align: center;
@@ -477,13 +548,12 @@ p {
 //---------------------------------
 // Information
 //---------------------------------
-// .section__info {
-//   border-top: 1px solid $gray-lighter;
-// }
-
 .wrapper-info {
   position: relative;
   z-index: 99;
+  @include mobile() {
+    margin-bottom: $spacing-large;
+  }
 }
 
 .info-card {
@@ -491,14 +561,34 @@ p {
   width: 400px;
   background: $color-brand;
   color: $color-white;
-  height: 640px;
-  padding: 60px;
+  height: 600px;
+  padding: $spacing-xlarge;
   left: -60px;
+  @include mobile() {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    padding: $spacing-large;
+  }
+}
+
+.info-card__title {
+  margin: 0 0 $spacing-xlarge;
+  @include mobile() {
+    margin: 0 0 $spacing-base;
+  }
 }
 
 .info-card__row {
   lost-utility: clearfix;
   margin-bottom: 60px;
+  @include mobile() {
+    margin-bottom: $spacing-large;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
 }
 
 .info-card__icon {
@@ -516,6 +606,15 @@ p {
   }
 }
 
+.google-map {
+  overflow: hidden;
+  height: 600px;
+  width: 100%;
+  @include mobile() {
+    height: 400px;
+  }
+}
+
 #gmap_canvas {
   pointer-events: none;
 }
@@ -527,6 +626,9 @@ p {
   padding: 150px 300px 0;
   background: $color-brand;
   text-align: center;
+  @include mobile() {
+    padding: $spacing-xlarge 0 0;
+  }
   h1 {
     font-family: $font-sans;
     color: darken($color-brand, 35%);
@@ -538,6 +640,9 @@ p {
 .wrapper-footer {
   padding: 100px 0;
   text-align: center;
+  @include mobile() {
+    padding: $spacing-xlarge 0;
+  }
 }
 
 //---------------------------------

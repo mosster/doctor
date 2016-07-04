@@ -93,7 +93,7 @@ block content
     .wrapper-inner.wrapper-info
       .info-card
         .info-card__inner
-          h2 Information
+          h2.info-card__title Information
 
           .info-card__row
             .info-card__icon
@@ -111,10 +111,10 @@ block content
             .info-card__desc
               h6.margin-bottom--small.color--white Schedule
               h3.font--light Monday through Saturday
-              h3.font--light 10:00am &mdash; 9:00pm
+              h3.font--light.margin--zero 10:00am &mdash; 9:00pm
 
   script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
-  div(style='overflow:hidden;height:640px;width:100%;')
+  .google-map
     #gmap_canvas(style='height:640px;width:100%;')
     style.
       #gmap_canvas img{max-width:none!important;background:none!important}
