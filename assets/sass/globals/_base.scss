@@ -91,8 +91,8 @@ body {
 }
 
 ::selection {
-  color: #F85328;
-  background: transparent;
+  color: $color-brand;
+  background: $color-white;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
@@ -266,6 +266,10 @@ p {
 
 .color--brand {
   color: $color-brand;
+}
+
+.color--gray-darkest {
+  color: $gray-darkest;
 }
 
 .middle-character {
@@ -520,7 +524,7 @@ p {
 // Book Appointment
 //---------------------------------
 .section__book {
-  padding: 150px 300px;
+  padding: 150px 300px 0;
   background: $color-brand;
   text-align: center;
   h1 {
@@ -528,6 +532,14 @@ p {
     color: darken($color-brand, 35%);
   }
 }
+//---------------------------------
+// Footer
+//---------------------------------
+.wrapper-footer {
+  padding: 100px 0;
+  text-align: center;
+}
+
 //---------------------------------
 // Animations
 //---------------------------------
