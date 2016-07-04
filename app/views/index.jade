@@ -1,4 +1,4 @@
-extends layout.jade
+extends ./layout.jade
 
 block content
 
@@ -7,60 +7,135 @@ block content
   //-------------------------
   include includes/header
 
-  .wrapper-inner
 
-    //- Intro
-    section.wrapper-intro.m-scene
-      h6 Obviously not a copywriter
-      .scene_element.scene_element--fadein
-        h1 Hi, I'm Ed. A #[span.glitch(data-text='digital') digital] product designer from the Big Apple.
-        p.text--small 
-          | I worked most recently on the OPEN Forum product for American Express while employed at Kettle for the past year. 
-          | During my time there, I've collaborated with strategists, product owners, engineers and stakeholders to develop new 
-          | features and create a great all-around experience for our users while focusing on both user and business goals and objectives.
-        p.text--small
-          | I tinker in all aspects of building exceptional products from developing high level wireframes and user stories to designing highly functional in-browser prototypes.
+  //-------------------------
+  //- About Us
+  //-------------------------
+  section#about-us
+    .wrapper-inner.section--border
+      h2 About Us
+      h6 Laskin Clinic
 
-    //- Works
-    section.wrapper-works
-      ul.works__list
-        li.works__list__item 
-          a(href='/works')
-            sup 1
-            span Bossdock
-            | Building Teams in Healthcare
-        li.works__list__item 
-          a(href='/works')
-            sup 2
-            span Canary
-            | Security for Everyone
-        li.works__list__item 
-          a(href='/works')
-            sup 3
-            span NewsCred
-            | The Value of Content Marketing
-        li.works__list__item 
-          a(href='/works')
-            sup 4
-            span Lunch?
-            | The Question of The Day
-        li.works__list__item 
-          a(href='/works')
-            sup 5
-            span Open Forum
-            | A Helpful Way to Communicate
+      .about
+        p Being the first of its kind, laskin introduces new age cosmetic wonders under the dermatologist's wand for skin procedures like acne scar &amp; stretch mark reduction, hyper-pigmentation, photo damaged skin, laser hair reduction, narrow band uvb therapy for psoriasis &amp; vitiligo, skin tightening and laser tattoo removal amongst other procedures. 
 
-    //- Contact Links
-    section.wrapper-contact
-      ul.contact__list
-        li.contact__list__item
-          a(href='https://twitter.com/mosstache', target='_blank') #[span.ion-social-twitter]
-        li.contact__list__item
-          a(href='https://dribbble.com/edmoss', target='_blank') #[span.ion-social-dribbble]
-        li.contact__list__item
-          a(href='https://linkedin.com/in/mossified', target='_blank') #[span.ion-social-linkedin]
-        li.contact__list__item
-          a(href='https://github.com/mosster', target='_blank') #[span.ion-social-github]
-        li.contact__list__item.contact__list__item--right.wobble
-          a(href='http://mossified.com', target='_blank') #[span.ion-android-hand]
+        p Laskin also takes great pride in their new and unique approach to fat loss & body sculpting with low frequency ultrasound technology followed controlled volumetric heating with radio frequency that enables sculpting, lifting and toning of the face and body for the desired look you have always wanted. 
 
+        p Tallking about detoxification, we surely cannot miss the 'angel of water' colon cleansing treatment that gently enhances your inner health by cleansing years of stagnant toxic waste preparing you for a healthy lifestyle. 
+
+      .gallery
+        .gallery__item--featured #[img(src='http://placehold.it/400x250', alt='')]
+        .gallery__group
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+
+  //-------------------------
+  //- Doctors
+  //-------------------------
+  section#doctors
+    .wrapper-inner.section--border
+      h2 Doctors
+
+      .wrapper-cards
+
+        .card
+          .card__img
+            img.img--circle(src='http://placehold.it/100x100')
+          .card__title
+            h6.margin-bottom--small Dermatologist
+            h3 Dr. Niyandia Batha
+          .card__desc
+            span.caption MBBS , MD - Dermatology , Venereology & Leprosy, Fellowship in Cutaneous Surgeries
+
+        .card
+          .card__img
+            img.img--circle(src='http://placehold.it/100x100')
+          .card__title
+            h6.margin-bottom--small Dermatologist
+            h3 Dr. Niyandia Batha
+          .card__desc
+            span.caption MBBS , MD - Dermatology , Venereology & Leprosy, Fellowship in Cutaneous Surgeries
+
+  //-------------------------
+  //- Services
+  //-------------------------
+  section#services
+    .wrapper-inner.margin-bottom--xlarge
+      h6 Services
+
+      ul.services__list
+        li.services__item Consultation
+        li.services__item Dermatology
+        li.services__item Laser Hair Reduction
+        li.services__item Acne &amp; Pigmentation Reductions
+        li.services__item Scars &amp; Stretch Mark Removal
+        li.services__item Face Lift &amp; Tightening
+        li.services__item Botox &amp; Fillers
+        li.services__item Colon Hydrotherapy
+        li.services__item Warts
+        li.services__item Moles &amp; Freckles Removal
+        li.services__item Medical Peels
+        li.services__item Mole Removal
+        li.services__item Dermatology
+        li.services__item Warts/Mole Removal
+        li.services__item Acne Treatment
+
+  //-------------------------
+  //- Information
+  //-------------------------
+  section#information.section__info
+    .wrapper-inner.wrapper-info
+      .info-card
+        .info-card__inner
+          h2 Information
+
+          .info-card__row
+            .info-card__icon
+              .span.ion-android-map
+            .info-card__desc
+              h6.margin-bottom--small.color--white Location
+              h3.font--light L A Skin &amp; Aesthetic Clinic
+              p.margin--zero.caption 545, Defence Colony, 
+              p.caption New Delhi - 110024
+              a.color--white(href='', target='_blank') Get directions here
+
+          .info-card__row
+            .info-card__icon
+              .span.ion-android-alarm-clock
+            .info-card__desc
+              h6.margin-bottom--small.color--white Schedule
+              h3.font--light Monday through Saturday
+              h3.font--light 10:00am &mdash; 9:00pm
+
+  script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
+  div(style='overflow:hidden;height:640px;width:100%;')
+    #gmap_canvas(style='height:640px;width:100%;')
+    style.
+      #gmap_canvas img{max-width:none!important;background:none!important}
+  script(type='text/javascript').
+    function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(28.570840100000016,77.22184829921892),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(28.570840100000016,77.22184829921892)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>C-545 Chandra Gupta Vithi Rd Block C Defence Colony Block C Defence Colony New Delhi Delhi 110049, India<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+
+  //-------------------------
+  //- Book Appointment
+  //-------------------------
+  section#appointment.section__book
+    h1.color--white.margin-bottom--xlarge Book an appointment
+
+    .wrapper-inner
+      form
+        .input-group
+          input(type='text', placeholder='First Name')
+        .input-group
+          input(type='text', placeholder='Last Name')
+        .input-group
+          input(type='text', placeholder='Email Address')
+        .input-group
+          textarea(rows='10')
+        .input-group
+          a.btn--brand-2.btn--full.btn--large.btn--shadow-light Submit

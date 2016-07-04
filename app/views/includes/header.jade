@@ -1,13 +1,25 @@
 //- Header
-section.wrapper-header
+section.wrapper-header.overlay--light
   .wrapper-inner
     header.header
-      .header__cta
-        a.btn--orange(href='mailto:mossified.com', target='_blank') Connect
-      .header__logo
-        a(href='/')
-          .header__logo__img
-            include logo
+      ul.nav
+        li.nav__item
+          a(href='#about-us') About
+        li.nav__item
+          a(href='#services') Services
+        li.nav__item
+          a(href='#doctors') Doctors
+        li.nav__item
+          a(href='#information') Information
 
-
-
+    //- Intro
+    section.wrapper-intro
+      h4.font--light.color--white
+        | Multi Specialty Clinic
+        span.ion-android-call.middle-character
+        | 011 3310 4992 #776
+      .scene_element.scene_element--fadein
+        h1 L A Skin &amp; Aesthetic Clinic
+        a(href='#appointment').btn--brand-2
+          span.icon.ion-flash
+          | Book an Appointment

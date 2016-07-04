@@ -1,0 +1,29 @@
+extends ../works.jade
+
+block worksContent
+
+  //-------------------------
+  //- Header
+  //-------------------------
+  include ../includes/header-2
+
+  section.wrapper-hero(style='background-image:url("#{heroBackground}")')
+    .wrapper-inner.z-index--highest
+      h6.color--white OPEN Forum
+      h1 A Helpful Way to Communicate
+
+  //-------------------------
+  //- Content
+  //-------------------------
+  section.wrapper-content
+    .wrapper-inner.content__section
+      h4.content__label The Background
+      .content__p__wrapper
+        p.content__p
+          | OPEN Forum was started by American Express to help small-business owners and entrepreneurs exchange insights and advice so they could make smart and well-informed decisions. I first joined the OPEN Forum team right during my time at Kettle - when they shipped the MVP to a seeded beta community in Fall 2012. Since then, I have watched and helped it grow into one of the largest entrepreneurial communities on the web with thousands of users exchanging advice everyday.
+
+        p.content__p
+          | This case-study demonstrates my process for re-designing the existing detail pages where the exchange of advice between our users took place.
+
+    .content__img
+      img(src='http://mossified.com/_img/study-of-1.png' alt='image')

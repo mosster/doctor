@@ -23,7 +23,14 @@ router.get('/', function (req, res) {
 
 router.get('/works', function (req, res) {
   res.render('works', { 
-      title : 'Works' 
+      title : 'works' 
+    }
+  )
+});
+
+router.get('/works/bossdock', function (req, res) {
+  res.render('works/bossdock', { 
+      title : 'bossdock' 
     }
   )
 });

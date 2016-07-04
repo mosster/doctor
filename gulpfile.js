@@ -1,16 +1,26 @@
 var gulp         =  require('gulp'),
+    postcss      =  require('gulp-postcss'),
+    sourcemaps   =  require('gulp-sourcemaps'),
+    prefix       =  require('autoprefixer'),
     colors       =  require('gulp-util').colors,
     concat       =  require('gulp-concat'),
     csso         =  require('gulp-csso'),
     jade         =  require('gulp-jade'),
     uglify       =  require('gulp-uglify'),
+    lost         =  require('lost'),
     livereload   =  require('gulp-livereload'),
-    postcss      =  require('gulp-postcss'),
-    prefix       =  require('autoprefixer'),
     tinylr       =  require('tiny-lr'),
     sass         =  require('gulp-sass'),
     server       =  tinylr();
     tasks        =  ['js','css','templates','watch'];
+
+var paths = {
+  cssSource: 'assets/sass/',
+  cssDestination: 'build/css/',
+  jsSource: 'assets/js/',
+  jsDestination: 'build/js/',
+  htmlSource: 'app/views/'
+};
 
 // ---------------------------------------
 // Watch Task
@@ -25,10 +35,10 @@ console.log(colors.green('======================================================
 // Styling
 // ---------------------------------------
 gulp.task('css', function() {
-  return gulp.src('assets/sass/**/*.scss')
+  return gulp.src(paths.cssSource + '**/*.scss')
     .pipe( 
       sass({ 
-        includePaths: ['assets/sass/**/*'],
+        includePaths: [paths.cssSource + '**/*'],
         errLogToConsole: true
       })
     )
@@ -36,22 +46,24 @@ gulp.task('css', function() {
       postcss([ 
         prefix({ 
           browsers: ['last 2 versions'] 
-        }) 
+        }),
+        lost()
       ])
     )
     .pipe( csso() )
-    .pipe( gulp.dest('build/css/') )
+    .pipe( gulp.dest(paths.cssDestination) )
     .pipe( livereload( server ));
 });
+
 
 // ---------------------------------------
 // Scripts
 // ---------------------------------------
 gulp.task('js', function() {
-  return gulp.src('assets/js/**/*.js')
+  return gulp.src(paths.jsSource + '**/*.js')
     .pipe( uglify() )
     .pipe( concat('main.min.js'))
-    .pipe( gulp.dest('build/js/'))
+    .pipe( gulp.dest(paths.jsDestination))
     .pipe( livereload( server ));
 });
 
@@ -59,7 +71,7 @@ gulp.task('js', function() {
 // Templates
 // ---------------------------------------
 gulp.task('templates', function() {
-  return gulp.src('app/views/*.jade')
+  return gulp.src(paths.htmlSource + '*.jade')
     .pipe( 
       jade({
         pretty: true
@@ -77,9 +89,9 @@ gulp.task('watch', function () {
     if (err) {
       return console.log(err);
     }
-    gulp.watch('assets/sass/**/*.scss',['css']);
-    gulp.watch('assets/js/**/*.js',['js']);
-    gulp.watch('app/views/*.jade',['templates']);
+    gulp.watch(paths.cssSource + '**/*.scss',['css']);
+    gulp.watch(paths.jsSource + '**/*.js',['js']);
+    gulp.watch(paths.htmlSource + '*.jade',['templates']);
     
   });
 });
