@@ -412,6 +412,10 @@ p {
 
 .logo {
   float: left;
+  @include mobile() {
+    float: none;
+    text-align: center;
+  }
 }
 
 .nav {
@@ -590,7 +594,7 @@ p {
 
 .info-card__icon {
   font-size: 30px;
-  color: rgba($color-black, 0.4);
+  color: darken($color-brand, 35%);
   float: left;
 }
 
