@@ -3,7 +3,7 @@ process.env.PWD = process.cwd()
 // Module Dependencies
 // ------------------------------
 var express = require('express');
-var PORT = process.env.PORT || 4000;
+var PORT = process.env.PORT || 3000;
 var app = express();
 var data = require('./app/data')
 
@@ -20,6 +20,10 @@ app.use(express.static(process.env.PWD + '/build'));
 //     title : 'testing!!'
 //   })
 // });
+
+app.get('/', function (req, res) {
+  res.render('fluff')
+})
 
 app.get('*', function (req, res) {
   var website = req.path.substring(1)
