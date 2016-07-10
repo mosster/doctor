@@ -12,7 +12,7 @@ var gulp         =  require('gulp'),
     tinylr       =  require('tiny-lr'),
     sass         =  require('gulp-sass'),
     server       =  tinylr();
-    tasks        =  ['js','css','templates','watch'];
+    tasks        =  ['js','css','templates', 'watch'];
 
 var paths = {
   cssSource: 'assets/sass/',
@@ -26,6 +26,7 @@ var paths = {
 // Watch Task
 // ---------------------------------------
 gulp.task('default', tasks);
+gulp.task('compile', ['js','css','templates']);
 
 console.log(colors.green('======================================================='));
 console.log(colors.green('Start tasks'));

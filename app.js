@@ -1,25 +1,40 @@
+process.env.PWD = process.cwd()
 // ------------------------------
 // Module Dependencies
 // ------------------------------
 var express = require('express');
-var PORT = 3000;
+var PORT = process.env.PORT || 4000;
 var app = express();
 var router = express.Router();  
 
 
-app.set('views', __dirname + '/app/views');
+app.set('views', process.env.PWD + '/app/views');
 app.set('view engine', 'jade');
-app.use(express.static(__dirname + '/build'));
+app.use(express.static(process.env.PWD + '/build'));
 
 // ------------------------------
 // Routes
 // ------------------------------
 router.get('/', function (req, res) {
   res.render('index', { 
-      title : 'index' 
+      title : 'index'
     }
   )
 });
+
+router.get('/bma', function (req, res) {
+  res.render('index', { 
+      title : 'index' 
+    }
+  )
+})
+
+router.get('/barnegat-medical-associates', function (req, res) {
+  res.render('index', { 
+      title : 'index' 
+    }
+  )
+})
 
 router.get('/works', function (req, res) {
   res.render('works', { 
