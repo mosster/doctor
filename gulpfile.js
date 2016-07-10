@@ -12,7 +12,7 @@ var gulp         =  require('gulp'),
     tinylr       =  require('tiny-lr'),
     sass         =  require('gulp-sass'),
     server       =  tinylr();
-    tasks        =  ['js','css','templates', 'watch'];
+    tasks        =  ['js','css', 'watch', 'templates'];
 
 var paths = {
   cssSource: 'assets/sass/',
@@ -26,7 +26,7 @@ var paths = {
 // Watch Task
 // ---------------------------------------
 gulp.task('default', tasks);
-gulp.task('compile', ['js','css','templates']);
+gulp.task('compile', ['js','css']);
 
 console.log(colors.green('======================================================='));
 console.log(colors.green('Start tasks'));
@@ -73,12 +73,6 @@ gulp.task('js', function() {
 // ---------------------------------------
 gulp.task('templates', function() {
   return gulp.src(paths.htmlSource + '*.jade')
-    .pipe( 
-      jade({
-        pretty: true
-      })
-    )
-    .pipe(gulp.dest('build/'))
     .pipe( livereload( server ));
 });
 
@@ -93,6 +87,7 @@ gulp.task('watch', function () {
     gulp.watch(paths.cssSource + '**/*.scss',['css']);
     gulp.watch(paths.jsSource + '**/*.js',['js']);
     gulp.watch(paths.htmlSource + '*.jade',['templates']);
+    gulp.watch('app/data.js',['templates']);
     
   });
 });
