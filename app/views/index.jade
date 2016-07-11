@@ -89,7 +89,7 @@ block content
               h3.font--light.margin--zero !{clinic.phone}
 
   .wrapper-inner.wrapper-inner--full
-    a(href='#{clinic.directions}', target='_blank')
+    a.wrapper-google-map(href='#{clinic.directions}', target='_blank')
       .google-map(style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?zoom=14&scale=2&size=1280x1280&markers=color:red|#{clinic.latitude},#{clinic.longitude}&key=AIzaSyDYadCNEyN8c9pk1XHRhe-XhNtdGMRWoLM)")
 
   //-------------------------

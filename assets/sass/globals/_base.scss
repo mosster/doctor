@@ -463,19 +463,35 @@ a {
   }
 }
 
-.google-map {
+.wrapper-google-map {
   overflow: hidden;
+}
+
+.google-map {
   height: 600px;
   width: 100%;
   max-width: 600px;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 600px 600px;
+  background-position: 0 0;
   position: relative;
   float: right;
   left: $spacing-base * 2;
+  transition: all .5s ease-in-out;
+  &:hover {
+    transition: all .5s ease-in-out;
+    background-size: 700px 700px;
+    background-position: -50px -50px;
+  }
   @include mobile() {
     height: 400px;
+    background-position: center center;
     left: 0;
+    transition: none;
+    &:hover {
+      transition: none;
+      background-position: center center;
+    }
   }
 }
 
