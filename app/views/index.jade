@@ -18,16 +18,10 @@ block content
       .about !{about}
 
       .gallery
-        .gallery__item--featured #[img(src='http://placehold.it/400x250', alt='')]
+        .gallery__item--featured #[img(src='#{gallery[0]}', alt='')]
         .gallery__group
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
-          .gallery__item #[img(src='http://placehold.it/400x250', alt='')]
+          each photo in gallery
+            .gallery__item #[img(src='#{photo}', alt='')]
 
   //-------------------------
   //- Doctors
@@ -40,7 +34,7 @@ block content
         each doctor in doctors
           .card
             .card__img
-              img.img--circle(src="#{doctor.photo}")
+              img.img--circle(src='#{doctor.photo}')
             .card__title
               h6.margin-bottom--small !{doctor.specialty}
               h3 !{doctor.name}
@@ -75,7 +69,7 @@ block content
               h3.font--light !{clinic.name}
               p.margin--zero.caption !{clinic.address} 
               p.caption !{clinic.city}, !{clinic.state} - !{clinic.zip}
-              a.color--white(href='', target='_blank') Get directions here
+              a.color--white(href='#{clinic.directions}', target='_blank') Get directions here
               span.ion-android-arrow-forward.color--white.middle-character
 
           .info-card__row
@@ -83,8 +77,8 @@ block content
               .span.ion-android-alarm-clock
             .info-card__desc
               h6.margin-bottom--small.color--white Schedule
-              h3.font--light Monday through Saturday
-              h3.font--light.margin--zero 10:00am &mdash; 9:00pm
+              h3.font--light !{clinic.schedule.days}
+              h3.font--light.margin--zero !{clinic.schedule.time}
 
   script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
   .google-map
