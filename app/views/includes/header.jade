@@ -3,7 +3,7 @@ section.wrapper-header.overlay--light
   .wrapper-inner
     header.header
       .logo
-        .logo__title L A Skin &amp; Aesthetic Clinic
+        .logo__title !{clinic.name}
       ul.nav
         li.nav__item
           a(href='#about-us') About
@@ -17,11 +17,11 @@ section.wrapper-header.overlay--light
     //- Intro
     section.wrapper-intro
       h4.font--light.color--white
-        | Multi Specialty Clinic
+        | !{clinic.category}
         span.ion-android-call.middle-character
-        | 011 3310 4992 #776
+        | !{clinic.phone}
       .scene_element.scene_element--fadein
-        h1 L A Skin &amp; Aesthetic Clinic
+        h1 !{clinic.name}
         a(href='#appointment').btn--brand-2
           span.icon.ion-flash
           | Book an Appointment

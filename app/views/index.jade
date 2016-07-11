@@ -7,21 +7,15 @@ block content
   //-------------------------
   include includes/header
 
-
   //-------------------------
   //- About Us
   //-------------------------
   section#about-us
     .wrapper-inner.section--border
       h2 About Us
-      h6 #{clinicName}
+      h6 !{clinic.name}
 
-      .about
-        p Being the first of its kind, laskin introduces new age cosmetic wonders under the dermatologist's wand for skin procedures like acne scar &amp; stretch mark reduction, hyper-pigmentation, photo damaged skin, laser hair reduction, narrow band uvb therapy for psoriasis &amp; vitiligo, skin tightening and laser tattoo removal amongst other procedures. 
-
-        p Laskin also takes great pride in their new and unique approach to fat loss & body sculpting with low frequency ultrasound technology followed controlled volumetric heating with radio frequency that enables sculpting, lifting and toning of the face and body for the desired look you have always wanted. 
-
-        p Tallking about detoxification, we surely cannot miss the 'angel of water' colon cleansing treatment that gently enhances your inner health by cleansing years of stagnant toxic waste preparing you for a healthy lifestyle. 
+      .about !{about}
 
       .gallery
         .gallery__item--featured #[img(src='http://placehold.it/400x250', alt='')]
@@ -43,24 +37,15 @@ block content
       h2 Doctors
 
       .wrapper-cards
-
-        .card
-          .card__img
-            img.img--circle(src='http://placehold.it/100x100')
-          .card__title
-            h6.margin-bottom--small Dermatologist
-            h3 Dr. Niyandia Batha
-          .card__desc
-            span.caption MBBS , MD - Dermatology , Venereology & Leprosy, Fellowship in Cutaneous Surgeries
-
-        .card
-          .card__img
-            img.img--circle(src='http://placehold.it/100x100')
-          .card__title
-            h6.margin-bottom--small Dermatologist
-            h3 Dr. Niyandia Batha
-          .card__desc
-            span.caption MBBS , MD - Dermatology , Venereology & Leprosy, Fellowship in Cutaneous Surgeries
+        each doctor in doctors
+          .card
+            .card__img
+              img.img--circle(src="#{doctor.photo}")
+            .card__title
+              h6.margin-bottom--small !{doctor.specialty}
+              h3 !{doctor.name}
+            .card__desc
+              span.caption !{doctor.desc}
 
   //-------------------------
   //- Services
@@ -70,21 +55,8 @@ block content
       h6 Services
 
       ul.services__list
-        li.services__item Consultation
-        li.services__item Dermatology
-        li.services__item Laser Hair Reduction
-        li.services__item Acne &amp; Pigmentation Reductions
-        li.services__item Scars &amp; Stretch Mark Removal
-        li.services__item Face Lift &amp; Tightening
-        li.services__item Botox &amp; Fillers
-        li.services__item Colon Hydrotherapy
-        li.services__item Warts
-        li.services__item Moles &amp; Freckles Removal
-        li.services__item Medical Peels
-        li.services__item Mole Removal
-        li.services__item Dermatology
-        li.services__item Warts/Mole Removal
-        li.services__item Acne Treatment
+        each service in services
+          li.services__item !{service}
 
   //-------------------------
   //- Information
@@ -100,9 +72,9 @@ block content
               .span.ion-android-map
             .info-card__desc
               h6.margin-bottom--small.color--white Location
-              h3.font--light L A Skin &amp; Aesthetic Clinic
-              p.margin--zero.caption 545, Defence Colony, 
-              p.caption New Delhi - 110024
+              h3.font--light !{clinic.name}
+              p.margin--zero.caption !{clinic.address} 
+              p.caption !{clinic.city}, !{clinic.state} - !{clinic.zip}
               a.color--white(href='', target='_blank') Get directions here
               span.ion-android-arrow-forward.color--white.middle-character
 
