@@ -1,5 +1,7 @@
+'use strict';
+
 var latitude = 39.773041;
-var longitude = -74.277196;
+var longitude = -74.2074317;
 
 module.exports = {
   "bma": { 
