@@ -32,14 +32,15 @@ block content
 
       .wrapper-cards
         each doctor in doctors
-          .card
-            .card__img
-              img.img--circle(src='#{doctor.photo}')
-            .card__title
-              h6.margin-bottom--small !{doctor.specialty}
-              h3 !{doctor.name}
-            .card__desc
-              span.caption !{doctor.desc}
+          a.card--link(href='')
+            .card
+              .card__img
+                img.img--circle(src='#{doctor.photo}')
+              .card__title
+                h6.margin-bottom--small !{doctor.specialty}
+                h3 !{doctor.name}
+              .card__desc
+                span.caption !{doctor.desc}
 
   //-------------------------
   //- Services
@@ -81,7 +82,8 @@ block content
               h3.font--light.margin--zero !{clinic.schedule.time}
 
   .wrapper-inner.wrapper-inner--full
-    .google-map(style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?zoom=14&scale=2&size=1280x1280&markers=color:red|#{clinic.latitude},#{clinic.longitude}&key=AIzaSyDYadCNEyN8c9pk1XHRhe-XhNtdGMRWoLM)")
+    a(href='#{clinic.directions}', target='_blank')
+      .google-map(style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?zoom=14&scale=2&size=1280x1280&markers=color:red|#{clinic.latitude},#{clinic.longitude}&key=AIzaSyDYadCNEyN8c9pk1XHRhe-XhNtdGMRWoLM)")
 
   //-------------------------
   //- Book Appointment
@@ -102,4 +104,20 @@ block content
         .input-group
           a.btn--brand-2.btn--full.btn--large.btn--shadow-light Submit
 
+    //-------------------------
+    //- Footer
+    //-------------------------
     .wrapper-footer Powered by #[a.color--gray-darkest(href='http://dylal.com/') Dylal]
+
+  //-------------------------
+  //- Modals
+  //-------------------------
+
+  .remodal(data-remodal-id='dr-batha')
+    button.remodal-close(data-remodal-action='close')
+    h1 Remodal
+    p
+      | Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+    br
+    button.remodal-cancel(data-remodal-action='cancel') Cancel
+    button.remodal-confirm(data-remodal-action='confirm') OK
