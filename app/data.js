@@ -1,5 +1,11 @@
+var latitude = 39.773041;
+var longitude = -74.277196;
+
 module.exports = {
   "bma": { 
+    brand: {
+      heroImage: 'https://images.unsplash.com/photo-1467179257860-0b3be79206f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=84ac74736ea937d1bae0eae1f09dd96b'
+    },
     clinic: {
       name: "Barnegat Medical Associates",
       phone: "(609) 698-3636",
@@ -8,7 +14,9 @@ module.exports = {
       city: "Barnegat",
       address: "218 Pocohontas Ave",
       zip: " 08005",
-      directions: "https://www.google.com/maps/dir/''/218+Pocohontas+Ave,+Barnegat,+NJ+08005/@39.773041,-74.277196,12z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x89c1a75cdb07ffd1:0x302594c3c5b4ca65!2m2!1d-74.207156!2d39.773062",
+      directions: "https://www.google.com/maps/dir/''/218+Pocohontas+Ave,+Barnegat,+NJ+08005/@" + latitude + "," + longitude + ",12z/",
+      latitude: latitude,
+      longitude: longitude,
       schedule: {
         days: "Monday through Saturday",
         time: "9:00am &mdash; 5:00pm"

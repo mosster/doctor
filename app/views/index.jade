@@ -80,13 +80,8 @@ block content
               h3.font--light !{clinic.schedule.days}
               h3.font--light.margin--zero !{clinic.schedule.time}
 
-  script(src='https://maps.googleapis.com/maps/api/js?v=3.exp')
-  .google-map
-    #gmap_canvas(style='height:640px;width:100%;')
-    style.
-      #gmap_canvas img{max-width:none!important;background:none!important}
-  script(type='text/javascript').
-    function init_map(){var myOptions = {zoom:10,center:new google.maps.LatLng(28.570840100000016,77.22184829921892),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(28.570840100000016,77.22184829921892)});infowindow = new google.maps.InfoWindow({content:'<strong>Title</strong><br>C-545 Chandra Gupta Vithi Rd Block C Defence Colony Block C Defence Colony New Delhi Delhi 110049, India<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);
+  .wrapper-inner.wrapper-inner--full
+    .google-map(style="background-image:url(https://maps.googleapis.com/maps/api/staticmap?zoom=14&scale=2&size=1280x1280&markers=color:red|#{clinic.latitude},#{clinic.longitude}&key=AIzaSyDYadCNEyN8c9pk1XHRhe-XhNtdGMRWoLM)")
 
   //-------------------------
   //- Book Appointment

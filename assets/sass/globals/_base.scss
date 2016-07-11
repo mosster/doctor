@@ -322,7 +322,7 @@ p {
 .overlay--dark {
   &:after {
     @extend %overlay;
-    background: rgba(7, 10, 29, 0.86);
+    background: rgba(darken($color-brand, 45%), 0.85);
   }
 }
 
@@ -340,6 +340,12 @@ p {
   position: relative;
   @include mobile() {
     padding: 0 $spacing-base;
+  }
+  &.wrapper-inner--full {
+    width: 100%;
+    @include mobile() {
+      padding: 0;
+    }
   }
 }
 
@@ -360,7 +366,9 @@ p {
   position: relative;
   margin: 0 0 100px 0;
   color: #fff;
-  background: #000000 url('https://images.unsplash.com/photo-1443616527314-4fbb6da1dcf5?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=d0ca1220af53a213231404b45551abf3') no-repeat center center;
+  background-color: $color-brand;
+  background-repeat: no-repeat;
+  background-position: center center;
   background-size: cover;
   height: 100vh;
   z-index: 999;
@@ -563,7 +571,7 @@ p {
   background: $color-brand;
   color: $color-white;
   height: 600px;
-  padding: $spacing-xlarge;
+  padding: $spacing-xlarge - $spacing-small;
   left: -60px;
   @include mobile() {
     position: relative;
@@ -611,13 +619,16 @@ p {
   overflow: hidden;
   height: 600px;
   width: 100%;
+  max-width: 600px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+  float: right;
+  left: 40px;
   @include mobile() {
     height: 400px;
+    left: 0;
   }
-}
-
-#gmap_canvas {
-  pointer-events: none;
 }
 
 //---------------------------------
@@ -627,8 +638,10 @@ p {
   padding: 150px 300px 0;
   background: $color-brand;
   text-align: center;
+  margin-top: $spacing-xlarge * 2;
   @include mobile() {
     padding: $spacing-xlarge 0 0;
+    margin-top: 0;
   }
   h1 {
     font-family: $font-sans;
