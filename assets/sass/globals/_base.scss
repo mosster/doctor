@@ -1,70 +1,4 @@
 // ------------------------------------
-// Mixin: Breakpoints
-// ------------------------------------
-
-$mobile-width: 667px;
-$tablet-width: 900px;
-$desktop-width: 1024px;
-
-@mixin mobile {
-  @media (max-width: #{$mobile-width}) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (max-width: #{$desktop-width - 1px}) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: #{$desktop-width}) {
-    @content;
-  }
-}
-
-@mixin vertical-align {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-@mixin list-reset {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-//---------------------------------
-// Variables
-//---------------------------------
-
-$color-brand: #9200FF;
-$color-brand-2: #2180ff;
-
-$color-orange: #F85328;
-$color-black: #000;
-$color-blue-fade: #515563;
-$color-blue-lighter: #2180ff;
-$color-blue-darker: #161920;
-$color-white: #fff;
-
-$gray-lighter: #ddd;
-$gray-light: #ccc;
-$gray-regular: #999;
-$gray-darkest: #222;
-
-$font-sans: "aktiv-grotesk", "Helvetica Neue", "Helvetica-Neue", Arial, sans-serif;
-
-$spacing-small: 10px;
-$spacing-base: 20px;
-$spacing-large: 30px;
-$spacing-xlarge: 60px;
-
-$z-index-highest: 99;
-
-// ------------------------------------
 // Lost Gutter
 // ------------------------------------
 
@@ -101,18 +35,9 @@ body {
 //---------------------------------
 // Buttons
 //---------------------------------
-
-a {
-  color: $color-blue-lighter;
-  text-decoration: underline;
-}
-
-//---------------------------------
-// Buttons
-//---------------------------------
 %btn {
   display: inline-block;
-  padding: 10px 25px;
+  padding: $spacing-small 25px;
   font-size: 16px;
   font-weight: 400;
   border: none;
@@ -145,7 +70,7 @@ a {
 }
 
 .btn--large {
-  padding: 20px;
+  padding: $spacing-base;
   font-size: 20px;
 }
 
@@ -169,11 +94,11 @@ a {
 input[type='text'],
 textarea {
   width: 100%;
-  padding: 20px;
+  padding: $spacing-base;
   border-radius: 4px;
-  background: rgba(0,0,0,0.2);
+  background: rgba($color-black, 0.2);
   border: 1px solid transparent;
-  margin-bottom: 20px;
+  margin-bottom: $spacing-base;
   font-size: 24px;
   font-weight: 300;
   color: $color-white;
@@ -189,7 +114,7 @@ textarea {
   }
   &:hover {
     transition: all .3s ease-in-out;
-    background: rgba(0,0,0,0.35);
+    background: rgba($color-black, 0.35);
   }
 }
 
@@ -199,7 +124,7 @@ textarea {
 h1 {
   font-size: 68px;
   line-height: 72px;
-  margin: 0 0 20px;
+  margin: 0 0 $spacing-base;
   font-family: $font-sans;
   @include mobile {
     font-size: 24px;
@@ -230,100 +155,9 @@ p {
   margin: 0 0 $spacing-small;
 }
 
-.z-index--highest {
-  z-index: $z-index-highest;
-}
-
-//---------------------------------
-// Helpers
-//---------------------------------
-.margin-bottom--small {
-  margin-bottom: $spacing-small;
-}
-
-.margin-right--small {
-  margin-right: $spacing-small;
-}
-
-.margin-bottom--xlarge {
-  margin-bottom: $spacing-xlarge;
-}
-
-.margin--zero {
-  margin: 0;
-}
-
-.icon {
-  display: inline-block;
-  margin-right: $spacing-small;
-}
-
-.caption {
-  color: $gray-regular;
-  font-size: 14px;
-}
-
-.color--white {
-  color: #fff;
-}
-
-.color--brand {
-  color: $color-brand;
-}
-
-.color--gray-darkest {
-  color: $gray-darkest;
-}
-
-.middle-character {
-  display: inline-block;
-  margin: 0 $spacing-small;
-}
-
-.text-capitalize {
-  text-transform: capitalize;
-}
-
-.font--light {
-  font-weight: 100;
-}
-
-.img--center {
-  text-align: center;
-  margin: 0 auto;
-  display: block;
-}
-
-.img--circle {
-  border-radius: 50%;
-}
-
-%overlay {
-  &:after {
-    content: '';
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;  
-  }
-}
-
-.overlay--light {
-  &:after {
-    @extend %overlay;
-    background: rgba($color-brand, 0.15);
-  }
-}
-
-
-.overlay--dark {
-  &:after {
-    @extend %overlay;
-    background: rgba(darken($color-brand, 45%), 0.85);
-  }
+a {
+  color: $color-blue-lighter;
+  text-decoration: underline;
 }
 
 //---------------------------------
@@ -365,13 +199,26 @@ p {
 .wrapper-header {
   position: relative;
   margin: 0 0 100px 0;
-  color: #fff;
+  color: $color-white;
   background-color: $color-brand;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   height: 100vh;
   z-index: 999;
+  &:before {
+    content: '\f35d';
+    position: absolute;
+    font-size: 40px;
+    color: $color-white;
+    left: 0;
+    right: 0;
+    bottom: $spacing-xlarge;
+    font-family: "Ionicons";
+    z-index: 1;
+    text-align: center;
+    opacity: 0.3;
+  }
   @include mobile() {
     margin-bottom: 50px;
   }
@@ -405,7 +252,7 @@ p {
     .logo__title {
       float: left;
       font-weight: 800;
-      color: #aaa;
+      color: $gray-regular;
     }
   }
 }
@@ -414,7 +261,7 @@ p {
   position: relative;
   top: 50px;
   @include mobile() {
-    top: 20px;
+    top: $spacing-base;
   }
 }
 
@@ -464,9 +311,9 @@ p {
   text-align: center;
   margin: 0 auto;
   position: relative;
-  margin-top: 30px;
+  margin-top: $spacing-large;
   .btn--brand-2 {
-    margin-top: 30px;
+    margin-top: $spacing-large;
   }
 }
 
@@ -495,9 +342,9 @@ p {
 }
 
 .gallery__group {
-  margin-top: 20px;
+  margin-top: $spacing-base;
   .gallery__item {
-    lost-waffle: 1/3 3 20px;
+    lost-waffle: 1/3 3 $spacing-base;
     img {
       width: 100%;
       height: auto;
@@ -528,7 +375,7 @@ p {
 //---------------------------------
 .wrapper-cards {
   .card--link {
-    lost-column: 4/12 3 40px;
+    lost-column: 4/12 3 $spacing-base * 2;
     color: inherit;
     text-decoration: none;
     @include mobile() {
@@ -564,9 +411,6 @@ p {
 .wrapper-info {
   position: relative;
   z-index: 99;
-  @include mobile() {
-    margin-bottom: $spacing-large;
-  }
 }
 
 .info-card {
@@ -587,7 +431,7 @@ p {
 }
 
 .info-card__title {
-  margin: 0 0 $spacing-xlarge;
+  margin: 0 0 $spacing-large;
   @include mobile() {
     margin: 0 0 $spacing-base;
   }
@@ -595,7 +439,7 @@ p {
 
 .info-card__row {
   lost-utility: clearfix;
-  margin-bottom: 60px;
+  margin-bottom: $spacing-large;
   @include mobile() {
     margin-bottom: $spacing-large;
     &:last-of-type {
@@ -628,7 +472,7 @@ p {
   background-size: cover;
   position: relative;
   float: right;
-  left: 40px;
+  left: $spacing-base * 2;
   @include mobile() {
     height: 400px;
     left: 0;

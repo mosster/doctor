@@ -1,6 +1,13 @@
 //-----------------------------------
 // Globals
 //-----------------------------------
+@import 'globals/variables';
+@import 'globals/mixins';
+@import 'globals/helpers';
 @import 'globals/base';
+
+//-----------------------------------
+// Remodal
+//-----------------------------------
 @import 'vendor/remodal';
 @import 'vendor/remodal-theme';

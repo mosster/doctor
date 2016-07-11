@@ -57,7 +57,7 @@ block content
   //- Information
   //-------------------------
   section#information.section__info
-    .wrapper-inner.wrapper-info
+    .wrapper-inner.wrapper-inner--full.wrapper-info
       .info-card
         .info-card__inner
           h2.info-card__title Information
@@ -80,6 +80,13 @@ block content
               h6.margin-bottom--small.color--white Schedule
               h3.font--light !{clinic.schedule.days}
               h3.font--light.margin--zero !{clinic.schedule.time}
+
+          .info-card__row
+            .info-card__icon
+              .span.ion-android-call
+            .info-card__desc
+              h6.margin-bottom--small.color--white Phone
+              h3.font--light.margin--zero !{clinic.phone}
 
   .wrapper-inner.wrapper-inner--full
     a(href='#{clinic.directions}', target='_blank')

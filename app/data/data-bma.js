@@ -6,6 +6,7 @@ var longitude = -74.2074317;
 module.exports = {
   "bma": { 
     brand: {
+      color: 'tomato',
       heroImage: 'https://images.unsplash.com/photo-1467179257860-0b3be79206f8?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=84ac74736ea937d1bae0eae1f09dd96b'
     },
     clinic: {
@@ -68,4 +69,3 @@ module.exports = {
     ]
   },
 }
-

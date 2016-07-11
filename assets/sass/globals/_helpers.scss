@@ -1,0 +1,94 @@
+//---------------------------------
+// Helpers
+//---------------------------------
+.margin-bottom--small {
+  margin-bottom: $spacing-small;
+}
+
+.margin-right--small {
+  margin-right: $spacing-small;
+}
+
+.margin-bottom--xlarge {
+  margin-bottom: $spacing-xlarge;
+}
+
+.margin--zero {
+  margin: 0;
+}
+
+.icon {
+  display: inline-block;
+  margin-right: $spacing-small;
+}
+
+.caption {
+  color: $gray-regular;
+  font-size: 14px;
+}
+
+.color--white {
+  color: #fff;
+}
+
+.color--brand {
+  color: $color-brand;
+}
+
+.color--gray-darkest {
+  color: $gray-darkest;
+}
+
+.middle-character {
+  display: inline-block;
+  margin: 0 $spacing-small;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.font--light {
+  font-weight: 100;
+}
+
+.img--center {
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+
+.img--circle {
+  border-radius: 50%;
+}
+
+%overlay {
+  &:after {
+    content: '';
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;  
+  }
+}
+
+.z-index--highest {
+  z-index: $z-index-highest;
+}
+
+.overlay--light {
+  &:after {
+    @extend %overlay;
+    background: rgba($color-brand, 0.15);
+  }
+}
+
+.overlay--dark {
+  &:after {
+    @extend %overlay;
+    background: rgba(darken($color-brand, 45%), 0.85);
+  }
+}
